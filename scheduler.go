@@ -24,7 +24,7 @@ func Every(duration string) Scheduler {
 
 // Cron returns a Scheduler that will execute the task based on the cron expression
 func Cron(cron string) Scheduler {
-	return &CronScheduler{cronExpression: cron}
+	return &cronScheduler{cronExpression: cron}
 }
 
 // simpleScheduler to run tasks based on time units.
@@ -101,21 +101,21 @@ func (bg *backgroundTask) start() {
 	}
 }
 
-// CronScheduler to run tasks based on a cron expression
-type CronScheduler struct {
+// cronScheduler to run tasks based on a cron expression
+type cronScheduler struct {
 	cronExpression string
 }
 
 // TODO
-func (scheduler *CronScheduler) Schedule(task func()) Scheduler {
+func (scheduler *cronScheduler) Schedule(task func()) Scheduler {
 	return scheduler
 }
 
 // TODO
-func (scheduler *CronScheduler) ScheduleWithDelay(task func()) Scheduler {
+func (scheduler *cronScheduler) ScheduleWithDelay(task func()) Scheduler {
 	return scheduler
 }
 
 // TODO
-func (scheduler *CronScheduler) Stop() {
+func (scheduler *cronScheduler) Stop() {
 }
